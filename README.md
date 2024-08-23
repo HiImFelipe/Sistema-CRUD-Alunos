@@ -1,7 +1,7 @@
 # Sistema de Cadastro de Alunos
 
 <p align="center">
-  <img src="[https://github.com/waldyr/Sublime-Installer/blob/master/sublime_text.png?raw=true](https://github.com/user-attachments/assets/582955cd-22a9-4306-83e0-c7733c5097b0)" alt="Programa Rodando no Terminal"/>
+  <img src="https://github.com/user-attachments/assets/582955cd-22a9-4306-83e0-c7733c5097b0"/>
 </p>
 
 **Objetivo:** Desenvolver um programa em C que permita o cadastro de alunos utilizando struct. O sistema deve armazenar informações básicas sobre os alunos, como nome, idade, matrícula e curso.
