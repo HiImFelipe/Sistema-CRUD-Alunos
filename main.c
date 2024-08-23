@@ -35,6 +35,44 @@ bool CreateAluno(char nome[100], int idade, int matricula, char curso[50]) {
   return true;
 }
 
+bool UpdateAluno(int matricula, char nome[100], int idade, char curso[50]) {
+  AlunoList *tmp = alunos;
+
+  while (tmp != NULL) {
+    if (tmp->aluno.matricula == matricula) {
+
+      if (strcmp(tmp->aluno.nome, nome) == 0 && tmp->aluno.idade == idade &&
+          strcmp(tmp->aluno.curso, curso) == 0) {
+        printf("Nenhuma alteração foi feita \n");
+        return true;
+      }
+
+      if (nome != "" || nome != NULL) {
+        free(tmp->aluno.nome);
+        tmp->aluno.nome = nome;
+      }
+
+      if (curso != "" || curso != NULL) {
+        free(tmp->aluno.curso);
+        tmp->aluno.curso = curso;
+      }
+
+      tmp->aluno.idade = idade;
+
+      printf("Aluno %s atualizado com sucesso \n", tmp->aluno.nome);
+
+      return true;
+    }
+
+    tmp = tmp->next;
+  }
+
+  tmp = NULL;
+
+  printf("Aluno não encontrado");
+  return false;
+}
+
 void ListAlunos() {
   if (alunos == NULL) {
     printf("Nenhum aluno cadastrado \n");
@@ -128,6 +166,31 @@ void CreateAlunoController() {
   CreateAluno(nome, idade, matricula, curso);
 }
 
+void UpdateAlunoController() {
+  char *nome = malloc(100);
+  char *curso = malloc(50);
+  int idade;
+  int matricula;
+
+  printf("Digite a matricula do aluno: ");
+  scanf("%d", &matricula);
+
+  if (!GetAlunoByMatricula(matricula)) {
+    return;
+  }
+
+  printf("Digite o novo nome do aluno: ");
+  scanf("%99s", nome);
+
+  printf("Digite a nova idade do aluno: ");
+  scanf("%d", &idade);
+
+  printf("Digite o novo curso do aluno: ");
+  scanf("%49s", curso);
+
+  UpdateAluno(matricula, nome, idade, curso);
+}
+
 void GetAlunoByMatriculaController() {
   int matricula;
 
@@ -167,6 +230,7 @@ void ClearAlunos() {
 int main() {
   void (*options[])(void) = {
       CreateAlunoController,
+      UpdateAlunoController,
       ListAlunosController,
       GetAlunoByMatriculaController,
       DeleteAlunoByMatriculaController,
@@ -176,10 +240,11 @@ int main() {
     int option;
 
     printf("1 - Criar Aluno \n");
-    printf("2 - Listar Alunos \n");
-    printf("3 - Buscar Aluno pela Matrícula \n");
-    printf("4 - Apagar Aluno \n");
-    printf("5 - Sair \n");
+    printf("2 - Atualizar Aluno \n");
+    printf("3 - Listar Alunos \n");
+    printf("4 - Buscar Aluno pela Matrícula \n");
+    printf("5 - Apagar Aluno \n");
+    printf("6 - Sair \n");
 
     scanf("%d", &option);
 
@@ -188,12 +253,12 @@ int main() {
       continue;
     }
 
-    if (option > 5 || option < 1) {
+    if (option > 6 || option < 1) {
       printf("Opção inválida \n");
       continue;
     }
 
-    if (option == 5) {
+    if (option == 6) {
       ClearAlunos();
 
       break;
