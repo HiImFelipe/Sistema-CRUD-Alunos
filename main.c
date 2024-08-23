@@ -17,10 +17,10 @@ typedef struct AlunoList {
 
 AlunoList *alunos = NULL;
 
-bool CreateAluno(char *nome, int idade, int matricula, char *curso) {
+bool CreateAluno(char nome[100], int idade, int matricula, char curso[50]) {
   Aluno createdAluno = {nome, idade, matricula, curso};
 
-  AlunoList *newAluno = (AlunoList *)malloc(sizeof(AlunoList));
+  AlunoList *newAluno = malloc(sizeof(*newAluno));
 
   if (newAluno == NULL) {
     return false;
@@ -34,6 +34,11 @@ bool CreateAluno(char *nome, int idade, int matricula, char *curso) {
 }
 
 void ListAlunos() {
+  if (alunos == NULL) {
+    printf("Nenhum aluno cadastrado \n");
+    return;
+  }
+
   AlunoList *tmp = alunos;
 
   while (tmp != NULL) {
@@ -64,7 +69,7 @@ bool GetAlunoByMatricula(int matricula) {
 
   tmp = NULL;
 
-  printf("%s", "Aluno não encontrado");
+  printf("Aluno não encontrado");
   return false;
 }
 
@@ -97,16 +102,82 @@ bool DeleteAlunoByMatricula(int matricula) {
   return false;
 }
 
+void CreateAlunoController() {
+  char nome[100] = "";
+  char curso[50] = "";
+  int idade;
+  int matricula;
+
+  printf("Digite o nome do aluno: ");
+  scanf("%99s", nome);
+
+  printf("Digite a idade do aluno: ");
+  scanf("%d", &idade);
+
+  printf("Digite a matricula do aluno: ");
+  scanf("%d", &matricula);
+
+  printf("Digite o curso do aluno: ");
+  scanf("%49s", curso);
+
+  CreateAluno(nome, idade, matricula, curso);
+}
+
+void GetAlunoByMatriculaController() {
+  int matricula;
+
+  printf("Digite a matricula do aluno: ");
+  scanf("%d", &matricula);
+
+  GetAlunoByMatricula(matricula);
+}
+
+void ListAlunosController() { ListAlunos(); }
+
+void DeleteAlunoByMatriculaController() {
+  int matricula;
+
+  printf("Digite a matricula do aluno: ");
+  scanf("%d", &matricula);
+
+  DeleteAlunoByMatricula(matricula);
+}
+
 int main() {
-  CreateAluno("João", 20, 123, "Engenharia");
-  CreateAluno("Maria", 21, 124, "Medicina");
-  CreateAluno("José", 22, 125, "Direito");
+  void (*options[])(void) = {
+      CreateAlunoController,
+      ListAlunosController,
+      GetAlunoByMatriculaController,
+      DeleteAlunoByMatriculaController,
+  };
 
-  ListAlunos();
+  for (;;) {
+    int option;
 
-  GetAlunoByMatricula(123);
+    printf("1 - Criar Aluno \n");
+    printf("2 - Listar Alunos \n");
+    printf("3 - Buscar Aluno pela Matrícula \n");
+    printf("4 - Apagar Aluno \n");
+    printf("5 - Sair \n");
 
-  DeleteAlunoByMatricula(123);
+    scanf("%d", &option);
+
+    if (getchar() != '\n') {
+      printf("Opção inválida \n");
+      continue;
+    }
+
+    if (option > 5 || option < 1) {
+      printf("Opção inválida \n");
+      continue;
+    }
+
+    if (option == 5) {
+      break;
+    }
+
+    options[option - 1]();
+  }
 
   return 0;
 }
