@@ -45,3 +45,9 @@ Crie um menu de opções no main que permita ao usuário:
 - [ ] Buscar um aluno por matrícula.
 - [ ] Atualizar informações de um aluno.
 - [ ] Remover um aluno.
+
+## Considerações do Aluno
+
+A matéria, até o presente dia, não nos apresentou ponteiros ou estruturas mais complexas como listas ligadas. A implementação dos mesmos, utilizados neste projeto, são extras e utilizados apenas para treino pessoal.
+
+O projeto não têm nenhum tipo de peso nas notas do semestre.
