@@ -40,11 +40,11 @@ Crie uma struct chamada Aluno que contenha os seguintes campos:
 
 Crie um menu de opções no main que permita ao usuário:
 
-- [ ] Cadastrar um novo aluno.
-- [ ] Listar todos os alunos.
-- [ ] Buscar um aluno por matrícula.
+- [x] Cadastrar um novo aluno.
+- [x] Listar todos os alunos.
+- [x] Buscar um aluno por matrícula.
 - [ ] Atualizar informações de um aluno.
-- [ ] Remover um aluno.
+- [x] Remover um aluno.
 
 ## Como rodar o projeto
 
