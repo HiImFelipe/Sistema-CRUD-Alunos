@@ -46,6 +46,22 @@ Crie um menu de opções no main que permita ao usuário:
 - [ ] Atualizar informações de um aluno.
 - [ ] Remover um aluno.
 
+## Como rodar o projeto
+
+Para gerar o binário do projeto, eu utilizo `gcc` da seguinte maneira
+
+```
+gcc -o app main.c
+```
+
+Para rodar de fato, utilizamos a sintaxe abaixo
+
+```
+./app
+```
+
+O nome `app` é genérico e pode ser alterado para o que desejar.
+
 ## Considerações do Aluno
 
 A matéria, até o presente dia, não nos apresentou ponteiros ou estruturas mais complexas como listas ligadas. A implementação dos mesmos, utilizados neste projeto, são extras e utilizados apenas para treino pessoal.
