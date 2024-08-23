@@ -1,4 +1,7 @@
-# Sistema de Cadastro de Alunos
+ 
+<h1 align="center">🖋️ Sistema de Cadastro de Alunos</h1>
+
+<br/>
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/582955cd-22a9-4306-83e0-c7733c5097b0"/>
@@ -6,7 +9,7 @@
 
 **Objetivo:** Desenvolver um programa em C que permita o cadastro de alunos utilizando struct. O sistema deve armazenar informações básicas sobre os alunos, como nome, idade, matrícula e curso.
 
-## Instruções
+## 📖 Instruções
 
 ### Definição da struct
 
@@ -50,7 +53,7 @@ Crie um menu de opções no main que permita ao usuário:
 - [x] Atualizar informações de um aluno.
 - [x] Remover um aluno.
 
-## Como rodar o projeto
+## 💻 Como rodar o projeto
 
 Para gerar o binário do projeto, eu utilizo `gcc` da seguinte maneira
 
@@ -66,13 +69,13 @@ Para rodar de fato, utilizamos a sintaxe abaixo
 
 O nome `app` é genérico e pode ser alterado para o que desejar.
 
-## Considerações do Aluno
+## 📑 Considerações
 
 A matéria, até o presente dia, não nos apresentou ponteiros ou estruturas mais complexas como listas ligadas. A implementação dos mesmos, utilizados neste projeto, são extras e utilizados apenas para treino pessoal.
 
 O projeto não têm nenhum tipo de peso nas notas do semestre.
 
-## Desafios Durante o Desenvolvimento
+## ⌚ Desafios Durante o Desenvolvimento
 
 O uso de malloc para salvar as strings (nome, curso) da variável `alunos` foi imprescindível, pois, após a criação, o programa realizava uma liberação de memória ao final da execução da função CreateAlunoController. Isto fazia com que a listagem de Alunos tentasse printar um valor em um espaço de memória que o programa já não reconhecia, fazendo com que o programa mostrasse `trash values` no terminal.
 
