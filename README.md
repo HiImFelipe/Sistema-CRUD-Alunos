@@ -4,7 +4,7 @@
 
 ## Instruções
 
-#### Definição da struct
+### Definição da struct
 
 Crie uma struct chamada Aluno que contenha os seguintes campos:
 
@@ -13,7 +13,7 @@ Crie uma struct chamada Aluno que contenha os seguintes campos:
 - int matricula;
 - char curso[50];
 
-#### Criação de Funções
+### Criação de Funções
 
 **Cadastrar Aluno**
 
