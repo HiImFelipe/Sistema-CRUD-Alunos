@@ -1,5 +1,9 @@
 # Sistema de Cadastro de Alunos
 
+<p align="center">
+  <img src="[https://github.com/waldyr/Sublime-Installer/blob/master/sublime_text.png?raw=true](https://github.com/user-attachments/assets/582955cd-22a9-4306-83e0-c7733c5097b0)" alt="Programa Rodando no Terminal"/>
+</p>
+
 **Objetivo:** Desenvolver um programa em C que permita o cadastro de alunos utilizando struct. O sistema deve armazenar informações básicas sobre os alunos, como nome, idade, matrícula e curso.
 
 ## Instruções
@@ -30,7 +34,7 @@ Crie uma struct chamada Aluno que contenha os seguintes campos:
 
 **Atualizar Cadastro**
 
-- [ ] Crie uma função para atualizar os dados de um aluno já cadastrado, identificando-o pela matrícula.
+- [x] Crie uma função para atualizar os dados de um aluno já cadastrado, identificando-o pela matrícula.
 
 **Remover Aluno**
 
@@ -43,7 +47,7 @@ Crie um menu de opções no main que permita ao usuário:
 - [x] Cadastrar um novo aluno.
 - [x] Listar todos os alunos.
 - [x] Buscar um aluno por matrícula.
-- [ ] Atualizar informações de um aluno.
+- [x] Atualizar informações de um aluno.
 - [x] Remover um aluno.
 
 ## Como rodar o projeto
