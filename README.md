@@ -67,3 +67,9 @@ O nome `app` é genérico e pode ser alterado para o que desejar.
 A matéria, até o presente dia, não nos apresentou ponteiros ou estruturas mais complexas como listas ligadas. A implementação dos mesmos, utilizados neste projeto, são extras e utilizados apenas para treino pessoal.
 
 O projeto não têm nenhum tipo de peso nas notas do semestre.
+
+## Desafios Durante o Desenvolvimento
+
+O uso de malloc para salvar as strings (nome, curso) da variável `alunos` foi imprescindível, pois, após a criação, o programa realizava uma liberação de memória ao final da execução da função CreateAlunoController. Isto fazia com que a listagem de Alunos tentasse printar um valor em um espaço de memória que o programa já não reconhecia, fazendo com que o programa mostrasse `trash values` no terminal.
+
+Isto também me trouxe alguns desafios como: utilizar a função `free` corretamente para não causar nenhum tipo de memory leak ao final da execução do programa.
