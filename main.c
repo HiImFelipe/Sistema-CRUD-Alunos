@@ -30,6 +30,8 @@ bool CreateAluno(char nome[100], int idade, int matricula, char curso[50]) {
   newAluno->next = alunos;
   alunos = newAluno;
 
+  printf("Aluno %s criado com sucesso \n", alunos->aluno.nome);
+
   return true;
 }
 
@@ -80,15 +82,18 @@ bool DeleteAlunoByMatricula(int matricula) {
   while (tmp != NULL) {
     if (tmp->aluno.matricula == matricula) {
 
-      printf("Aluno com matricula %d foi deletado \n", matricula);
-
       if (prev == NULL) {
         alunos = tmp->next;
       } else {
         prev->next = tmp->next;
       }
 
+      free(tmp->aluno.nome);
+      free(tmp->aluno.curso);
       free(tmp);
+
+      printf("Aluno com matricula %d foi deletado \n", matricula);
+
       return true;
     }
 
@@ -103,8 +108,8 @@ bool DeleteAlunoByMatricula(int matricula) {
 }
 
 void CreateAlunoController() {
-  char nome[100] = "";
-  char curso[50] = "";
+  char *nome = malloc(100);
+  char *curso = malloc(50);
   int idade;
   int matricula;
 
@@ -143,6 +148,22 @@ void DeleteAlunoByMatriculaController() {
   DeleteAlunoByMatricula(matricula);
 }
 
+void ClearAlunos() {
+  AlunoList *tmp = alunos;
+
+  while (tmp != NULL) {
+    AlunoList *next = tmp->next;
+
+    free(tmp->aluno.nome);
+    free(tmp->aluno.curso);
+    free(tmp);
+
+    tmp = next;
+  }
+
+  alunos = NULL;
+}
+
 int main() {
   void (*options[])(void) = {
       CreateAlunoController,
@@ -173,6 +194,8 @@ int main() {
     }
 
     if (option == 5) {
+      ClearAlunos();
+
       break;
     }
 
