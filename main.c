@@ -227,6 +227,16 @@ void ClearAlunos() {
   alunos = NULL;
 }
 
+void ClearScreen() {
+#if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+  system("clear");
+#endif
+
+#if defined(_WIN32) || defined(_WIN64)
+  system("cls");
+#endif
+}
+
 int main() {
   void (*options[])(void) = {
       CreateAlunoController,
@@ -237,6 +247,8 @@ int main() {
   };
 
   for (;;) {
+    ClearScreen();
+
     int option;
 
     printf("1 - Criar Aluno \n");
